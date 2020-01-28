@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: hello-gateway
+  cloud:
+    consul:
+      host: 172.18.0.20
+      port: 8500
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      routes:
+        - id: myRoute
+          uri: lb://hello-service
+          predicates:
+            - Path=/hello
